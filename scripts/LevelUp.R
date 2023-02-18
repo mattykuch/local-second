@@ -33,5 +33,16 @@ penguins <- palmerpenguins::penguins %>%
                                      TRUE ~ 1))
 #Plot -----
 
-ggplot(penguins, aes(x=bill_depth_mm, y=bill_length_mm, color = species)) +
-  geom_point()
+basic_plot <- ggplot(penguins, aes(x=bill_depth_mm, y=bill_length_mm, color = species)) +
+        geom_point(aes(alpha = banana_quantity)) + 
+        scale_alpha(range = c(0.2, 1),
+                    breaks = c(0.1, 0.5, 1)) +
+        labs(title = "Banana loaf tastes best when baked with ripe or over-ripe bananas",
+        subtitle = "The Palmer Penguins carried out an experiment using bananas of different ripeness.
+The Adelie penguins were given unripe bananas, Gentoos were given over-ripe 
+bananas and Chinstraps were given yellow bananas.
+Each penguin was left to choose their own cooking time.",
+       x = "Baking time",
+       y = "Yumminess",
+       caption = "Data from {palmerpenguins}; misused for illustration purposes.") +
+  theme_minimal(base_size = 12)
