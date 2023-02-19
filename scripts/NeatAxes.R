@@ -22,6 +22,9 @@ base_plot +
     panel.grid.major = element_line(color = "#e7e7e7",size = 0.4),
     panel.grid.minor = element_blank(),
     axis.line = element_line(color = "#e7e7e7",size = 0.8,
-                             arrow = arrow(length = unit(2, "mm")))
+                             arrow = arrow(length = unit(2, "mm"))),
+    axis.ticks.length = unit(3, "mm"),
+    axis.ticks = element_line(color = "#e7e7e7",size = 0.4),
+    axis.title.y = element_text(angle = 0)
     
   )
