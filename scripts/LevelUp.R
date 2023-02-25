@@ -24,7 +24,7 @@ install.packages("plotly")
 #Load tidyverse
 library(tidyverse)
 
-#Data -----
+# |- Data -----
 
 penguins <- palmerpenguins::penguins %>% 
   filter(!is.na(bill_length_mm)) %>%
@@ -32,7 +32,13 @@ penguins <- palmerpenguins::penguins %>%
                                      species == "Adelie" & island == "Dream" ~ 0.5,
                                      species == "Adelie" & island == "Torgersen" ~ 0.1,
                                      TRUE ~ 1))
-#Plot -----
+# |- Colour scheme ----
+banana_colours <- list("Adelie" = "#89973d",
+                       "Chinstrap" = "#e8b92f",
+                       "Gentoo" = "#a45e41")
+
+
+# |- Plot -----
 
 basic_plot <- ggplot(penguins, aes(x=bill_depth_mm, y=bill_length_mm, color = species)) +
         geom_point(aes(alpha = banana_quantity)) + 
@@ -45,7 +51,10 @@ bananas and Chinstraps were given yellow bananas.
 Each penguin was left to choose their own cooking time.",
        x = "Baking time",
        y = "Yumminess",
-       caption = "Data from {palmerpenguins}; misused for illustration purposes.") +
+       caption = "Data from {palmerpenguins}; misused for illustration purposes.")  +
   theme_minimal(base_size = 12)
 
-basic_plot
+# |- Level up! ----
+basic_plot +
+  scale_color_manual(values = banana_colours)
+
