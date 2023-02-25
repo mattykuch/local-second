@@ -27,6 +27,7 @@ library(tidyverse)
 #Data -----
 
 penguins <- palmerpenguins::penguins %>% 
+  filter(!is.na(bill_length_mm)) %>%
   mutate(banana_quantity = case_when(species == "Adelie" & island == "Biscoe" ~ 1,
                                      species == "Adelie" & island == "Dream" ~ 0.5,
                                      species == "Adelie" & island == "Torgersen" ~ 0.1,
@@ -46,3 +47,5 @@ Each penguin was left to choose their own cooking time.",
        y = "Yumminess",
        caption = "Data from {palmerpenguins}; misused for illustration purposes.") +
   theme_minimal(base_size = 12)
+
+basic_plot
