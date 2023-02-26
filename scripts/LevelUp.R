@@ -37,6 +37,21 @@ banana_colours <- list("Adelie" = "#89973d",
                        "Chinstrap" = "#e8b92f",
                        "Gentoo" = "#a45e41")
 
+dark_text <- monochromeR::generate_palette(banana_colours$Chinstrap,
+                                           "go_darker",
+                                           n_colours = 2)[2]
+
+light_text <- monochromeR::generate_palette(dark_text,
+                                            "go_lighter",
+                                            n_colours = 3)[2]
+
+banana_colours <- list("Adelie" = "#89973d",
+                       "Chinstrap" = "#e8b92f",
+                       "Gentoo" = "#a45e41",
+                       "light_text" = light_text,
+                       "dark_text" = dark_text)
+
+monochromeR::view_palette(banana_colours)
 
 # |- Plot -----
 
@@ -59,7 +74,7 @@ basic_plot +
   scale_color_manual(values = banana_colours) +
   labs(title = paste0("Banana loaf tastes best when baked with ",
                       "<span style=\"color:", banana_colours$Chinstrap,
-                      "\">**ripe**</span> or<br><span style=\"color:",
+                      "\">**ripe**</span> or <span style=\"color:",
                       banana_colours$Gentoo, "\">**over-ripe**</span> bananas"),
        subtitle = "The Palmer Penguins carried out an experiment using bananas of different ripeness.
 Each penguin was left to choose their own cooking time.") +
