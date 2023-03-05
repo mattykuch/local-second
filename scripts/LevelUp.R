@@ -71,12 +71,13 @@ Each penguin was left to choose their own cooking time.",
 
 # |- Level up! ----
 basic_plot +
-  scale_color_manual(values = banana_colours) +
+  scale_color_manual(values = banana_colours, limits = force) +
   labs(title = paste0("Banana loaf tastes best when baked with ",
                       "<span style=\"color:", banana_colours$Chinstrap,
                       "\">**ripe**</span> or <span style=\"color:",
                       banana_colours$Gentoo, "\">**over-ripe**</span> bananas"),
        subtitle = "The Palmer Penguins carried out an experiment using bananas of different ripeness.
 Each penguin was left to choose their own cooking time.") +
-  theme(plot.title =  ggtext::element_markdown())
+  theme(text = element_text(colour = banana_colours$light_text),
+                      plot.title =  ggtext::element_markdown())
 
