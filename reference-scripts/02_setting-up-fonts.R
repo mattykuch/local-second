@@ -17,13 +17,13 @@ systemfonts::register_font(name = "Poppins",
                            # This is the path to the font I have already uploaded
                            plain = "fonts/Poppins-Bold.ttf")
 
-systemfonts::register_font(name = "Cabin1", 
+systemfonts::register_font(name = "Cabin-Italic", 
                            # This is the path to the font I have already uploaded
-                           plain = "fonts/Cabin-Italic-VariableFont_wdth,wght.ttf")
+                           plain = "fonts/Cabin Italic.ttf")
 
-systemfonts::register_font(name = "Cabin2", 
+systemfonts::register_font(name = "Cabin", 
                            # This is the path to the font I have already uploaded
-                           plain = "fonts/Cabin-VariableFont_wdth,wght.ttf")
+                           plain = "fonts/Cabin.ttf")
 
 # To check which fonts you have registered ----
 systemfonts::registry_fonts()

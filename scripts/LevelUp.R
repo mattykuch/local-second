@@ -79,7 +79,11 @@ basic_plot +
        subtitle = "The Palmer Penguins carried out an experiment using bananas of different ripeness.
 Each penguin was left to choose their own cooking time.") +
   theme(text = element_text(colour = banana_colours$light_text,
-                            family = "Cabin1"),
+                            family = "Lucida Sans Typewriter"),
                       plot.title =  ggtext::element_markdown(colour = banana_colours$dark_text,
-                                                             family = "Poppins"))
+                                                             family = "Lucida Sans Typewriter"))
 
+# Export ----
+ggsave(filename = "penguin-bakeoff.png", 
+       width = 8, height = 7.5, dpi = 400, 
+       bg = "#FFFFFF")
