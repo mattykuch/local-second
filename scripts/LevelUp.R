@@ -36,6 +36,18 @@ penguins <- palmerpenguins::penguins %>%
                                      species == "Adelie" & island == "Dream" ~ 0.5,
                                      species == "Adelie" & island == "Torgersen" ~ 0.1,
                                      TRUE ~ 1))
+# |- Summaries ----
+penguin_summaries <- palmerpenguins::penguins %>%
+  group_by(species) %>%
+  summarise(bill_depth_mm = mean(bill_depth_mm, na.rm = TRUE),
+            bill_length_mm = mean(bill_length_mm, na.rm = TRUE)) %>%
+  mutate(commentary = case_when(species == "Adelie" ~ 
+                                  "The Adelie penguins tried varying the amount of banana in the mix.
+                                Turns out, even a hint of green banana is detrimental to yumminess!",
+                                species == "Gentoo" ~
+                                  "Over-ripe bananas and typically shorter baking times.",
+                                TRUE ~ "Ripe bananas and slightly longer cooking times."))
+
 # |- Colour scheme ----
 banana_colours <- list("Adelie" = "#89973d",
                        "Chinstrap" = "#e8b92f",
@@ -85,9 +97,10 @@ Each penguin was left to choose their own cooking time.") +
   theme(text = element_text(colour = banana_colours$light_text,
                             family = "Cabin"),
                       plot.title =  ggtext::element_markdown(colour = banana_colours$dark_text,
-                                                             family = "Cabin"))
+                                                             family = "Poppins",size = 18),
+                      axis.text = element_text(size = 6, colour = banana_colours$light_text))
 
 # Export ----
 ggsave(filename = "penguin-bakeoff.png", 
-       width = 8, height = 7.5, dpi = 400, 
+       width = 10, height = 7.5, dpi = 400, 
        bg = "#FFFFFF")
