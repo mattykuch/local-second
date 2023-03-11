@@ -23,6 +23,10 @@ install.packages("plotly")
 
 #Load tidyverse
 library(tidyverse)
+library(ragg)
+library(ggtext)
+library(monochromeR)
+
 
 # |- Data -----
 
@@ -79,9 +83,9 @@ basic_plot +
        subtitle = "The Palmer Penguins carried out an experiment using bananas of different ripeness.
 Each penguin was left to choose their own cooking time.") +
   theme(text = element_text(colour = banana_colours$light_text,
-                            family = "Lucida Sans Typewriter"),
+                            family = "Cabin"),
                       plot.title =  ggtext::element_markdown(colour = banana_colours$dark_text,
-                                                             family = "Lucida Sans Typewriter"))
+                                                             family = "Cabin"))
 
 # Export ----
 ggsave(filename = "penguin-bakeoff.png", 
