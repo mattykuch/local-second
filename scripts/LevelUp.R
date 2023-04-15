@@ -96,7 +96,7 @@ basic_plot +
 Each penguin was left to choose their own cooking time.") +
   
   ggtext::geom_textbox(data = penguin_summaries,
-                       aes(label = paste0("**Team ", species, "**"))) +
+                       aes(label = paste0("**Team ", species, "**", "<br>", commentary))) +
   
   theme(text = element_text(colour = banana_colours$light_text,
                             family = "Cabin"),
