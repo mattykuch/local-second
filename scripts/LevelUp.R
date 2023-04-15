@@ -94,6 +94,10 @@ basic_plot +
                       banana_colours$Gentoo, "\">**over-ripe**</span> bananas"),
        subtitle = "The Palmer Penguins carried out an experiment using bananas of different ripeness.
 Each penguin was left to choose their own cooking time.") +
+  
+  ggtext::geom_textbox(data = penguin_summaries,
+                       aes(label = paste0("**Team ", species, "**"))) +
+  
   theme(text = element_text(colour = banana_colours$light_text,
                             family = "Cabin"),
                       plot.title =  ggtext::element_markdown(colour = banana_colours$dark_text,
